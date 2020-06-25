@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+    <h1>Salut, vous êtes sur la page A propos du site</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab distinctio magnam maxime molestiae pariatur perferendis praesentium quas voluptas! Ab aperiam cum nam nemo optio quaerat quo ratione sequi sunt voluptate?</p>
+    {% for o in json %}
+        <div>
+        <li>{{ o.firstname }}{% if(o.firstname=='Fabien') %} &#128151 {% endif %}</li>
+        <li>{{ o.lastname }}</li>
+        <li>{{ o.dateOfBirth|date('d/m/Y') }}</li>
+        <li>{{ o.creatorOf }}</li>
+        <img src={{ o.picture }}>
+        </div>
+    {% endfor %}
+{% endblock %}
