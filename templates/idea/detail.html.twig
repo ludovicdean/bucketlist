@@ -1,6 +1,8 @@
 {% extends 'layout.html.twig' %}
 
 {% block main %}
-    <h1>Salut, vous êtes sur la page Detail du site</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab distinctio magnam maxime molestiae pariatur perferendis praesentium quas voluptas! Ab aperiam cum nam nemo optio quaerat quo ratione sequi sunt voluptate?</p>
+    <h2>{{ idea.title}}</h2>
+<div>{{ idea.description }}</div>
+    <div>{{ idea.author }}</div>
+    <div>{{ idea.dateCreated |date("m/d/Y", "Europe/Paris") }}</div>
 {% endblock %}

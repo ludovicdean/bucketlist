@@ -3,4 +3,10 @@
 {% block main %}
     <h1>Salut, vous êtes sur la page list du site</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab distinctio magnam maxime molestiae pariatur perferendis praesentium quas voluptas! Ab aperiam cum nam nemo optio quaerat quo ratione sequi sunt voluptate?</p>
+    {% for idea in ideas %}
+        <div class="idea">
+            <a href="{{ path('idea_detail',{'id' : idea.id}) }}"> <br> {{ idea.title }} <br> {{ idea.author }} </a><br>
+        </div>
+        <br>
+    {% endfor %}
 {% endblock %}

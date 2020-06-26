@@ -112,4 +112,13 @@ class Idea
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDateCreated()
+    {
+        return $this->dateCreated;
+    }
+
 }
