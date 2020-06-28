@@ -19,6 +19,16 @@
         <a href="{{ path('list') }}" title="List">List</a>
     </nav>
 </header>
+
+{# pass an array argument to get the messages of those types  #}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
 <main>
     {% block main %}{% endblock %}
 </main>

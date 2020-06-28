@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\IdeaRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=IdeaRepository::class)
@@ -18,17 +19,23 @@ class Idea
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Please provide a name for the idea !")
+     * @Assert\Length(max=255, maxMessage="Max 255 characters !")
      * @ORM\Column(type="string",length=250)
      */
     private $title;
 
     /**
+     * @Assert\NotBlank(message="Please provide a description for the idea !")
+     * @Assert\Length(max=500, maxMessage="Max 500 characters !")
      * @ORM\Column(type="string",length=500, nullable=true)
      */
     private $description;
 
     /**
      * @ORM\Column(type="string",length=50)
+     * @Assert\NotBlank(message="Please provide your name for the idea !")
+     * @Assert\Length(max=50, maxMessage="Max 50 characters !")
      */
     private $author;
 
@@ -103,7 +110,7 @@ class Idea
     }
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
 
     private $dateCreated;
@@ -119,6 +126,14 @@ class Idea
     public function getDateCreated()
     {
         return $this->dateCreated;
+    }
+
+    /**
+     * @param mixed $dateCreated
+     */
+    public function setDateCreated($dateCreated)
+    {
+        $this->dateCreated = $dateCreated;
     }
 
 }
