@@ -20,7 +20,7 @@ class Idea
 
     /**
      * @Assert\NotBlank(message="Please provide a name for the idea !")
-     * @Assert\Length(max=255, maxMessage="Max 255 characters !")
+     * @Assert\Length(max=250, maxMessage="Max 250 characters !")
      * @ORM\Column(type="string",length=250)
      */
     private $title;
@@ -44,6 +44,11 @@ class Idea
      */
 
     private $isPublished;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\App\Entity\Category", inversedBy="ideas")
+     */
+    private $category;
 
     /**
      * @return mixed
@@ -134,6 +139,22 @@ class Idea
     public function setDateCreated($dateCreated)
     {
         $this->dateCreated = $dateCreated;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        return $this->category = $category;
     }
 
 }

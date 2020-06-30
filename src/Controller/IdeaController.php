@@ -52,7 +52,8 @@ class IdeaController extends Controller
             $em->flush();
 
             $this->addFlash('success', 'The idea has been saved !');
-            return $this->redirectToRoute('idea_detail', ['id' => $idea->getId()]);
+            /*return $this->redirectToRoute('idea_detail', ['id' => $idea->getId()]);
+            */
         }
 
 
