@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\IdeaRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=IdeaRepository::class)
@@ -19,142 +18,110 @@ class Idea
     private $id;
 
     /**
-     * @Assert\NotBlank(message="Please provide a name for the idea !")
-     * @Assert\Length(max=250, maxMessage="Max 250 characters !")
-     * @ORM\Column(type="string",length=250)
+     * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
-     * @Assert\NotBlank(message="Please provide a description for the idea !")
-     * @Assert\Length(max=500, maxMessage="Max 500 characters !")
-     * @ORM\Column(type="string",length=500, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $description;
 
     /**
-     * @ORM\Column(type="string",length=50)
-     * @Assert\NotBlank(message="Please provide your name for the idea !")
-     * @Assert\Length(max=50, maxMessage="Max 50 characters !")
+     * @ORM\Column(type="string", length=255)
      */
     private $author;
 
     /**
      * @ORM\Column(type="boolean")
      */
-
     private $isPublished;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="\App\Entity\Category", inversedBy="ideas")
-     */
-    private $category;
-
-    /**
-     * @return mixed
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @param mixed $title
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param mixed $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-
-    /**
-     * @param mixed $author
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIsPublished()
-    {
-        return $this->isPublished;
-    }
-
-    /**
-     * @param mixed $isPublished
-     */
-    public function setIsPublished($isPublished)
-    {
-        $this->isPublished = $isPublished;
-    }
 
     /**
      * @ORM\Column(type="datetime")
      */
+    private $createdAt;
 
-    private $dateCreated;
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="ideas")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getDateCreated()
+    public function getTitle(): ?string
     {
-        return $this->dateCreated;
+        return $this->title;
     }
 
-    /**
-     * @param mixed $dateCreated
-     */
-    public function setDateCreated($dateCreated)
+    public function setTitle(string $title): self
     {
-        $this->dateCreated = $dateCreated;
+        $this->title = $title;
+
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCategory()
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(string $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    public function getIsPublished(): ?bool
+    {
+        return $this->isPublished;
+    }
+
+    public function setIsPublished(bool $isPublished): self
+    {
+        $this->isPublished = $isPublished;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
     {
         return $this->category;
     }
 
-    /**
-     * @param mixed $category
-     */
-    public function setCategory($category)
+    public function setCategory(?Category $category): self
     {
-        return $this->category = $category;
-    }
+        $this->category = $category;
 
+        return $this;
+    }
 }

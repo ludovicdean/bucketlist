@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,9 +20,19 @@ class Category
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Idea::class, mappedBy="category")
+     */
+    private $ideas;
+
+    public function __construct()
+    {
+        $this->ideas = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -41,30 +52,33 @@ class Category
     }
 
     /**
-     * @ORM\OneToMany(targetEntity="\App\Entity\Idea",mappedBy="category")
+     * @return Collection|Idea[]
      */
-    private $ideas;
-
-    public function __construct()
-    {
-        $this->ideas = new ArrayCollection();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIdeas()
+    public function getIdeas(): Collection
     {
         return $this->ideas;
     }
 
-    /**
-     * @param mixed $ideas
-     */
-    public function setIdeas($ideas)
+    public function addIdea(Idea $idea): self
     {
-        $this->ideas = $ideas;
+        if (!$this->ideas->contains($idea)) {
+            $this->ideas[] = $idea;
+            $idea->setCategory($this);
+        }
+
+        return $this;
     }
 
+    public function removeIdea(Idea $idea): self
+    {
+        if ($this->ideas->contains($idea)) {
+            $this->ideas->removeElement($idea);
+            // set the owning side to null (unless already changed)
+            if ($idea->getCategory() === $this) {
+                $idea->setCategory(null);
+            }
+        }
 
+        return $this;
+    }
 }

@@ -1,8 +1,35 @@
 body {
-    background-color: #99cdd8;
-    font-family: "Arial Narrow";
+    font-family: "Philosopher";
+    background-image: url("https://source.unsplash.com/1600x900/?travel,fun,surf,champagne");
 }
-div {
+div,button {
     display:block;
-    text-align:center;
+    text-align:left;
+    padding: 0.5%;
+}
+
+a {
+    font-size: x-large;
+}
+
+input {
+    display: block;
+    text-align: center;
+}
+
+#rememberMe, #rememberMeLabel {
+    display: inline;
+}
+
+nav {
+    background-color: rgba(117, 190, 218, 0.5);
+}
+
+label {
+    background-color: rgba(117, 190, 218, 0.5);
+    padding: 0.5vw;
+}
+
+h1 {
+    text-align: center;
 }

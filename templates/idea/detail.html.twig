@@ -4,5 +4,5 @@
     <h2>{{ idea.title}}</h2>
 <div>{{ idea.description }}</div>
     <div>{{ idea.author }}</div>
-    <div>{{ idea.dateCreated |date("m/d/Y", "Europe/Paris") }}</div>
+    <div>{{ idea.createdAt |date("m/d/Y", "Europe/Paris") }}</div>
 {% endblock %}
