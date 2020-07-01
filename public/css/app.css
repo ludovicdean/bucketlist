@@ -1,6 +1,7 @@
 body {
     font-family: "Philosopher";
-    background-image: url("https://source.unsplash.com/1600x900/?travel,fun,surf,champagne");
+    background-image: url("https://source.unsplash.com/1600x900/?travel,fun,dark");
+    color: white;
 }
 div,button {
     display:block;
@@ -8,13 +9,25 @@ div,button {
     padding: 0.5%;
 }
 
+button {
+    margin-left: 5%;
+}
 a {
     font-size: x-large;
+    color: white;
+}
+
+main {
+    background-color: #222222;
+    opacity: 50%;
+    margin: 5%;
+    padding: 2%;
 }
 
 input {
     display: block;
     text-align: center;
+    margin-left: 5%;
 }
 
 #rememberMe, #rememberMeLabel {
@@ -22,14 +35,52 @@ input {
 }
 
 nav {
-    background-color: rgba(117, 190, 218, 0.5);
-}
-
-label {
-    background-color: rgba(117, 190, 218, 0.5);
-    padding: 0.5vw;
-}
+    margin-left: 5%;
+    }
 
 h1 {
+    align-self: center;
+    font-style: oblique;
+}
+
+footer {
+    margin-left: 5%;
+    bottom: 0;
+}
+
+footer a, p a {
+    font-size:large;
+}
+
+p, h2 {
+    margin-left: 5%;
+}
+
+.nav-item {
+    background-color: white;
+    opacity: 50%;
+    border-radius: 10%;
+}
+
+.nav-item:hover {
+    background-color: #718C00;
+    font-style: oblique;
+}
+
+strong {
+    font-style: oblique;
+    color:#718C00;
+}
+
+.idea {
     text-align: center;
+}
+
+.titre {
+    text-align: center;
+}
+
+.idea a:hover {
+    font-style: oblique;
+    color: #718C00;
 }

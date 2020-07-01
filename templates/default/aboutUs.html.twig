@@ -1,15 +1,16 @@
 {% extends 'layout.html.twig' %}
 
 {% block main %}
-    <h1>Salut, vous êtes sur la page A propos du site</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab distinctio magnam maxime molestiae pariatur perferendis praesentium quas voluptas! Ab aperiam cum nam nemo optio quaerat quo ratione sequi sunt voluptate?</p>
-    {% for o in json %}
-        <div>
-        <li>{{ o.firstname }}{% if(o.firstname=='Fabien') %} &#128151 {% endif %}</li>
-        <li>{{ o.lastname }}</li>
-        <li>{{ o.dateOfBirth|date('d/m/Y') }}</li>
-        <li>{{ o.creatorOf }}</li>
-        <img src={{ o.picture }}>
-        </div>
-    {% endfor %}
+    <h1>A propos !</h1>
+    <p>Voici venu le moment de me présenter ! <br> Je suis le créateur du site sur lequel vous vous trouvez, je m'appelle Ludovic Déan. <br> Je suis actuellement en formation au sein de l'<a href="www.eni-ecole.fr">ENI Ecole Informatique</a>.
+    Après quelques années passées au support informatique de la société ITGA, j'ai décidé d'évoluer grâce à la formation de Concepteur Développeur d'Applications dispensée par l'ENI.</p>
+{#    {% for o in json %}#}
+{#        <div>#}
+{#        <li>{{ o.firstname }}{% if(o.firstname=='Fabien') %} &#128151 {% endif %}</li>#}
+{#        <li>{{ o.lastname }}</li>#}
+{#        <li>{{ o.dateOfBirth|date('d/m/Y') }}</li>#}
+{#        <li>{{ o.creatorOf }}</li>#}
+{#        <img src={{ o.picture }}>#}
+{#        </div>#}
+{#    {% endfor %}#}
 {% endblock %}

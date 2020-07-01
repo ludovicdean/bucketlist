@@ -13,20 +13,7 @@
 </head>
 <body>
 <header>
-    <h1><img src="{{ asset('img/favicon.png') }}" alt="Bucket-List"> Bucket-List</h1>
-{#    <nav>#}
-{#        <a href="{{ path('home') }}" title="Back for home">Home</a>#}
-{#        <a href="{{ path('aboutus') }}" title="About Us">About Us</a>#}
-{#        <a href="{{ path('list') }}" title="List">List</a>#}
-{#        {% if app.user %}#}
-{#            <a href="{{ path('idea_add') }}" title="idea_add">Add idea</a>#}
-{#            <a href="{{ path('app_logout') }}" title="logout">Logout {{ app.user.username }}</a>#}
-{#        {% else %}#}
-{#            <a href="{{ path('app_login') }}" title="login">Login</a>#}
-{#            <a href="{{ path('app_register') }}" title="register">Register</a>#}
-{#        {% endif %}#}
-{#    </nav>#}
-
+    <h1 class="titre"><img src="{{ asset('img/favicon.png') }}" alt="Bucket-List"> Bucket-List</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,24 +23,27 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('home') }}">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ path('home') }}">Accueil<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('aboutus') }}">About us</a>
+                    <a class="nav-link" href="{{ path('aboutus') }}">A propos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('list') }}" title="List">Nos idées</a>
                 </li>
                 {% if app.user %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('idea_add') }}">Add an idea</a>
+                    <a class="nav-link" href="{{ path('idea_add') }}">Ajouter une idée</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                    <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_login') }}" title="login">Login</a>
+                    <a class="nav-link" href="{{ path('app_login') }}" title="login">Connexion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_register') }}" title="register">Register</a>
+                    <a class="nav-link" href="{{ path('app_register') }}" title="register">Créer un compte</a>
                 </li>
                 {% endif %}
             </ul>
@@ -75,7 +65,7 @@
 </main>
 <footer>
     &copy; {{ "now"|date("Y") }} Bucket-list
-    <p>Logo by Fabián Alexis (https://github.com/fabianalexisinostroza/Antu) [<a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>], <a href="https://commons.wikimedia.org/wiki/File%3AAntu_color-fill.svg">viaWikimedia Commons</a> </p>
+    <p>Logo par Fabián Alexis (https://github.com/fabianalexisinostroza/Antu) [<a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>], <a href="https://commons.wikimedia.org/wiki/File%3AAntu_color-fill.svg">viaWikimedia Commons</a> </p>
 </footer>
 </body>
 </html>
